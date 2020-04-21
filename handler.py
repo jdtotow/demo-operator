@@ -1,6 +1,6 @@
-import kopf, kubernetes, json
+import kopf, kubernetes
 
-prom_volume = json.loads(open('/prom-volume.json','r'))
+prom_volume = open('/prom-volume.json','r')
 
 @kopf.on.resume('unipi.gr', 'v1', 'triplemonitoringengines')
 @kopf.on.create('unipi.gr', 'v1', 'triplemonitoringengines')
