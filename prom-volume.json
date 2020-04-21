@@ -1,0 +1,43 @@
+{
+    "volumes": [
+    {
+      "name": "prometheus-config-file",
+      "configMap": {
+        "name": "configmap-prometheus",
+        "items": [
+          {
+            "key": "prometheus.yml",
+            "path": "prometheus.yml"
+          }
+        ]
+      }
+    },
+    {
+      "name": "config-volume",
+      "persistentVolumeClaim": {
+        "claimName": "config-volume-prometheus"
+      }
+    },
+    {
+      "name": "prometheus-tsdb",
+      "persistentVolumeClaim": {
+        "claimName": "prometheus-tsdb-volume"
+      }
+    }
+  ],
+  "volumeMounts": [
+    {
+      "name": "prometheus-config-file",
+      "mountPath": "/etc/prometheus/prometheus.yml",
+      "subPath": "prometheus.yml"
+    },
+    {
+      "name": "config-volume",
+      "mountPath": "/etc/prometheus"
+    },
+    {
+      "name": "prometheus-tsdb",
+      "mountPath": "/prometheus"
+    }
+  ]
+}
