@@ -48,7 +48,7 @@ def create_fn(body, spec, **kwargs):
     msg = f"Pod and Service created by Database {name}"
     return {'message': msg}
 
-@kopf.on.delete('zalando.org', 'v1', 'databases')
+@kopf.on.delete('unipi.gr', 'v1', 'triplemonitoringengines')
 def delete(body, **kwargs):
     msg = f"Database {body['metadata']['name']} and its Pod / Service children deleted"
     return {'message': msg}
