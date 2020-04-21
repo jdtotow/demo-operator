@@ -13,6 +13,6 @@ spec:
     spec:
       serviceAccountName: tme-operator
       containers:
-      - image: jdtotow/tme_operator:latest
+      - image: jdtotow/demo-operator
         name: op
         imagePullPolicy: Always
